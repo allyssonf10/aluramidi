@@ -7,8 +7,8 @@ const ListaDeTeclas = document.querySelectorAll('.tecla');
 
 let contador = 0;
 
-//enquanto
-while (contador < ListaDeTeclas.length){
+//para
+for (let contador=0; contador < ListaDeTeclas.length; contador++){
 
     const tecla = ListaDeTeclas[contador];
     const instrumento = tecla.classList[1];
@@ -18,9 +18,23 @@ while (contador < ListaDeTeclas.length){
     //console.log(idAudio);
 
     tecla.onclick = function(){
-        tocaSom(idAudio)
-    };
-    contador = contador + 1;
+        tocaSom(idAudio);
+    }
+
+    tecla.onkeydown = function (evento) {
+
+    console.log(evento.code == 'Enter');
+
+        if(evento.code == 'Enter' ){
+            tecla.classList.add('ativa'); 
+        }             
+        
+    }
+
+    tecla.onkeyup = function(){
+        tecla.classList.remove('ativa');
+    }
 
     //console.log(contador);
+
 }
