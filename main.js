@@ -23,13 +23,13 @@ for (let contador=0; contador < ListaDeTeclas.length; contador++){
 
     tecla.onkeydown = function (evento) {
 
-    console.log(evento.code == 'Enter');
-
-        if(evento.code == 'Enter' ){
+        if(evento.code === 'Enter' ){
             tecla.classList.add('ativa'); 
         }             
         
-        
+        if(evento.code === 'Space'){
+            tecla.classList.add('ativa');
+        }
     }
 
     tecla.onkeyup = function(){
